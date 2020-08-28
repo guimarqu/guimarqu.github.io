@@ -1,0 +1,96 @@
+/* Space out content a bit */
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 1rem;
+}
+
+.cv {
+  padding-top : 1.5rem;
+}
+
+.cv_desc {
+  font-size: 0.9rem;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 1.5rem;
+  color: #777;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.tab-content {
+  padding-top : 1rem;
+}
+
+.guigui {
+  border-bottom : 1px solid #eee
+}
+.guiguinfo {
+  padding-top: 2rem;
+}
+
+main {
+  padding-bottom: 2rem;
+}
+
+/* Customize container */
+@media (min-width: 58em) {
+  .container {
+    max-width: 56rem;
+  }
+}
+.container-narrow > hr {
+  margin: 2rem 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 58em) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .blackline {
+      border: 1px dashed black;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+
+  .desc-title {
+    color: #999;
+    font-size : 0.6em;
+  }
+
+  p.justify {
+    text-align: justify;
+  }
+}
