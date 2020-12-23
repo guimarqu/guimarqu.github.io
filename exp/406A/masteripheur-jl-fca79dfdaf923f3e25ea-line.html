@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/optim/Coluna.jl/test/unit/algorithms/masteripheur.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:46:49 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function masteripheur_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-2"></a>2</td>
+          <td></td>
+          <td>966 (100.00%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-test-unit-algorithms-masteripheur-jl-masteripheur_tests-2"></a>
+              966 (100.00%) samples spent in masteripheur_tests<br />
+              0 (ex.),
+              966 (100.00%) (incl.)
+              when called from
+              algorithm_unit_tests
+              <a href="algorithm-jl-d142c2ee3af3b06b73dd-line.html#Lalgorithm-jl-d142c2ee3af3b06b73dd-line.html-6">line 6</a><br />
+            </div>
+            <div class="callees">
+              966 (100.00%)
+              samples spent calling
+              <a href="masteripheur-jl-fca79dfdaf923f3e25ea-line.html#S-Users-guimarqu-optim-Coluna-jl-test-unit-algorithms-masteripheur-jl-infeasible_master_ip_heur_tests-4">infeasible_master_ip_heur_tests</a><br />
+            </div>
+            <span class="code">    infeasible_master_ip_heur_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-test-unit-algorithms-masteripheur-jl-infeasible_master_ip_heur_tests-4"></a>
+              966 (100.00%) samples spent in infeasible_master_ip_heur_tests<br />
+              0 (ex.),
+              966 (100.00%) (incl.)
+              when called from
+              masteripheur_tests
+              <a href="masteripheur-jl-fca79dfdaf923f3e25ea-line.html#Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-2">line 2</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function infeasible_master_ip_heur_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;play gap&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-7"></a>7</td>
+          <td></td>
+          <td>966 (100.00%)</td>
+          <td>
+            <div class="callees">
+              966 (100.00%)
+              samples spent calling
+              <a href="Test-jl-aca15a05fcd24f49cc7e-line.html#S-Users-julia-buildbot-worker-package_macos64-build-usr-share-julia-stdlib-v1-5-Test-src-Test-jl-macro-expansion-1115">macro expansion</a><br />
+            </div>
+            <span class="code">        data = CLD.GeneralizedAssignment.data(&quot;play2.txt&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # Apply directly master ip heuristic =&gt; infeasible        
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        coluna = JuMP.optimizer_with_attributes(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            Coluna.Optimizer,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            &quot;params&quot; =&gt; CL.Params(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                solver = ClA.SolveIpForm()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            ),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            &quot;default_optimizer&quot; =&gt; GLPK.Optimizer
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        )
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        problem, x, dec = CLD.GeneralizedAssignment.model(data, coluna)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-20"></a>20</td>
+          <td></td>
+          <td>966 (100.00%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-test-unit-algorithms-masteripheur-jl-macro-expansion-20"></a>
+              966 (100.00%) samples spent in macro expansion<br />
+              0 (ex.),
+              966 (100.00%) (incl.)
+              when called from
+              macro expansion
+              <a href="Test-jl-aca15a05fcd24f49cc7e-line.html#LTest-jl-aca15a05fcd24f49cc7e-line.html-1115">line 1115</a><br />
+            </div>
+            <div class="callees">
+              966 (100.00%)
+              samples spent calling
+              <a href="optimizer_interface-jl-3ed291aee8681480bc02-line.html#S-Users-guimarqu-julia-packages-JuMP-qhoVb-src-optimizer_interface-jl-optimize-106">optimize!</a><br />
+            </div>
+            <span class="code">        JuMP.optimize!(problem)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        @test JuMP.objective_value(problem) == Inf
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lmasteripheur-jl-fca79dfdaf923f3e25ea-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

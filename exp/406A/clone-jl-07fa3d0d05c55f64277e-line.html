@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/optim/Coluna.jl/src/MathProg/clone.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:47:12 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function clonevar!(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    originform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    destform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    assignedform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    var::Variable,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    duty::Duty{Variable};
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    name::String = getname(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    cost::Float64 = getperencost(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    lb::Float64 = getperenlb(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    ub::Float64 = getperenub(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    kind::VarKind = getperenkind(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    inc_val::Float64 = getperenincval(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    is_active::Bool = isperenactive(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    is_explicit::Bool = isexplicit(originform, var),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    members::Union{ConstrMembership,Nothing} = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-17"></a>17</td>
+          <td></td>
+          <td>51 (1.12%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-clonevar-kw-17"></a>
+              6 (0.13%) samples spent in clonevar!##kw<br />
+              0 (ex.),
+              6 (100.00%) (incl.)
+              when called from
+              instantiate_orig_vars!
+              <a href="decomposition-jl-dbd6ba2dbd74bd426fe3-line.html#Ldecomposition-jl-dbd6ba2dbd74bd426fe3-line.html-172">line 172</a><br />
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-clonevar-24-17"></a>
+              25 (0.55%) samples spent in #clonevar!#24<br />
+              0 (ex.),
+              0 (incl.)
+              when called from
+              clonevar!##kw
+              <a href="clone-jl-07fa3d0d05c55f64277e-line.html#Lclone-jl-07fa3d0d05c55f64277e-line.html-17">line 17</a><br />
+            </div>
+            <div class="callees">
+              5 (9.80%)
+              samples spent calling
+              <a href="clone-jl-07fa3d0d05c55f64277e-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-clonevar-24-17">#clonevar!#24</a><br />
+              1 (1.96%)
+              samples spent calling
+              <a href="varconstr-jl-fb337b0ae0a0dd322573-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-varconstr-jl-getperenlb-53">getperenlb</a><br />
+              25 (49.02%)
+              samples spent calling
+              <a href="formulation-jl-f07a70919719cc0ab335-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-formulation-jl-setvar-kw-142">setvar!##kw</a><br />
+              20 (39.22%)
+              samples spent calling
+              <a href="clone-jl-07fa3d0d05c55f64277e-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-clonevar-24-17">#clonevar!#24</a><br />
+            </div>
+            <span class="code">    return setvar!(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        destform, name, duty; 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        cost = cost, lb = lb, ub = ub, kind = kind,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        inc_val = inc_val, is_active = is_active, is_explicit = is_explicit, 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        members = members,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        id = Id{Variable}(duty, getid(var), getuid(assignedform))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    )
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function cloneconstr!(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    originform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    destform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    assignedform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    constr::Constraint,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    duty::Duty{Constraint};
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    name::String = getname(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    rhs::Float64 = getperenrhs(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    kind::ConstrKind = getperenkind(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sense::ConstrSense = getperensense(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    inc_val::Float64 = getperenincval(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    is_active::Bool = isperenactive(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    is_explicit::Bool = isexplicit(originform, constr),
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    members::Union{VarMembership,Nothing}  = nothing,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    loc_art_var = false
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-42"></a>42</td>
+          <td></td>
+          <td>4 (0.09%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-cloneconstr-kw-42"></a>
+              2 (0.04%) samples spent in cloneconstr!##kw<br />
+              0 (ex.),
+              2 (100.00%) (incl.)
+              when called from
+              instantiate_orig_constrs!
+              <a href="decomposition-jl-dbd6ba2dbd74bd426fe3-line.html#Ldecomposition-jl-dbd6ba2dbd74bd426fe3-line.html-110">line 110</a><br />
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-cloneconstr-25-42"></a>
+              2 (0.04%) samples spent in #cloneconstr!#25<br />
+              0 (ex.),
+              0 (incl.)
+              when called from
+              cloneconstr!##kw
+              <a href="clone-jl-07fa3d0d05c55f64277e-line.html#Lclone-jl-07fa3d0d05c55f64277e-line.html-42">line 42</a><br />
+            </div>
+            <div class="callees">
+              2 (50.00%)
+              samples spent calling
+              <a href="clone-jl-07fa3d0d05c55f64277e-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-cloneconstr-25-42">#cloneconstr!#25</a><br />
+              2 (50.00%)
+              samples spent calling
+              <a href="formulation-jl-f07a70919719cc0ab335-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-formulation-jl-setconstr-kw-360">setconstr!##kw</a><br />
+            </div>
+            <span class="code">    return setconstr!(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        destform, name, duty;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        rhs = rhs, kind = kind, sense = sense, inc_val = inc_val,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        is_active = is_active, is_explicit = is_explicit, members = members,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        loc_art_var = loc_art_var, id = Id{Constraint}(duty, getid(constr), getuid(assignedform))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    )
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-clone-jl-clonecoeffs-49"></a>
+              4474 (98.26%) samples spent in clonecoeffs!<br />
+              8 (100.00%) (ex.),
+              4474 (100.00%) (incl.)
+              when called from
+              assign_orig_vars_constrs!
+              <a href="decomposition-jl-dbd6ba2dbd74bd426fe3-line.html#Ldecomposition-jl-dbd6ba2dbd74bd426fe3-line.html-407">line 407</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function clonecoeffs!(originform::Formulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                      destform::Formulation)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    dest_matrix = getcoefmatrix(destform)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    orig_matrix = getcoefmatrix(originform)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for (cid, constr) in getconstrs(destform)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if haskey(originform, cid)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-56"></a>56</td>
+          <td>4 (0.09%)</td>
+          <td>4 (0.09%)</td>
+          <td>
+            <span class="code">            for (vid, var) in getvars(destform)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-57"></a>57</td>
+          <td></td>
+          <td>242 (5.32%)</td>
+          <td>
+            <div class="callees">
+              242 (100.00%)
+              samples spent calling
+              <a href="formulation-jl-f07a70919719cc0ab335-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-formulation-jl-haskey-40">haskey</a><br />
+            </div>
+            <span class="code">                if haskey(originform, vid)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-58"></a>58</td>
+          <td></td>
+          <td>2786 (61.19%)</td>
+          <td>
+            <div class="callees">
+              2786 (100.00%)
+              samples spent calling
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-matrix-jl-getindex-27">getindex</a><br />
+            </div>
+            <span class="code">                    val = orig_matrix[cid, vid]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-59"></a>59</td>
+          <td>4 (0.09%)</td>
+          <td>4 (0.09%)</td>
+          <td>
+            <span class="code">                    if val != 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-60"></a>60</td>
+          <td></td>
+          <td>1438 (31.58%)</td>
+          <td>
+            <div class="callees">
+              1126 (78.30%)
+              samples spent calling
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-matrix-jl-setindex-20">setindex!</a><br />
+              285 (19.82%)
+              samples spent calling
+              <a href="dict-jl-28d47e25ac84627a22f0-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-dict-jl-iterate-673">iterate</a><br />
+              27 (1.88%)
+              samples spent calling
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-matrix-jl-setindex-21">setindex!</a><br />
+            </div>
+            <span class="code">                        dest_matrix[cid, vid] = val
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-63"></a>63</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-66"></a>66</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lclone-jl-07fa3d0d05c55f64277e-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

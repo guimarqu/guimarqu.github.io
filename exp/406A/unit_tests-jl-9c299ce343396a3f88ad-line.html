@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/optim/Coluna.jl/test/unit/unit_tests.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:46:49 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;containers/nestedenum.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;containers/solsandbounds.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;MathProg/types.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;MathProg/variables.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;algorithms/algorithm.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;counters.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;variable.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;constraint.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-test-unit-unit_tests-jl-unit_tests-12"></a>
+              966 (100.00%) samples spent in unit_tests<br />
+              0 (ex.),
+              966 (100.00%) (incl.)
+              when called from
+              include
+              <a href="client-jl-b7af5466610ae6206699-line.html#Lclient-jl-b7af5466610ae6206699-line.html-457">line 457</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;ColunaBase submodule&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        nestedenum_unit()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        bound_unit()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        solution_unit()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;MathProg submodule&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        @testset &quot;types.jl&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            types_unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            variables_unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;algorithm.jl&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-28"></a>28</td>
+          <td></td>
+          <td>1932 (200.00%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-test-unit-unit_tests-jl-macro-expansion-28"></a>
+              966 (100.00%) samples spent in macro expansion<br />
+              0 (ex.),
+              0 (incl.)
+              when called from
+              macro expansion
+              <a href="Test-jl-aca15a05fcd24f49cc7e-line.html#LTest-jl-aca15a05fcd24f49cc7e-line.html-1115">line 1115</a><br />
+            </div>
+            <div class="callees">
+              966 (50.00%)
+              samples spent calling
+              <a href="algorithm-jl-d142c2ee3af3b06b73dd-line.html#S-Users-guimarqu-optim-Coluna-jl-test-unit-algorithms-algorithm-jl-algorithm_unit_tests-6">algorithm_unit_tests</a><br />
+              966 (50.00%)
+              samples spent calling
+              <a href="Test-jl-aca15a05fcd24f49cc7e-line.html#S-Users-julia-buildbot-worker-package_macos64-build-usr-share-julia-stdlib-v1-5-Test-src-Test-jl-macro-expansion-1115">macro expansion</a><br />
+            </div>
+            <span class="code">        algorithm_unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;counters.jl&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        counters_unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;variable.jl&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        variable_unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @testset &quot;constraint.jl&quot; begin
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        constraint_unit_tests()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lunit_tests-jl-9c299ce343396a3f88ad-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

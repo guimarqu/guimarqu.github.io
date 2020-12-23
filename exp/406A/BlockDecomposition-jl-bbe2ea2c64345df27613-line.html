@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/.julia/packages/BlockDecomposition/OYIcC/src/BlockDecomposition.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:47:12 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">module BlockDecomposition
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">using JuMP, MathOptInterface
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">import MathOptInterface
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">import MathOptInterface.Utilities
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const MOI = MathOptInterface
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const MOIU = MOI.Utilities
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">const JC = JuMP.Containers
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">export BlockModel, annotation, specify!, gettree, getmaster, getsubproblems, Ã,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">       indice, objectiveprimalbound!, objectivedualbound!
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">export @axis, @dantzig_wolfe_decomposition, @benders_decomposition
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;axis.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;annotations.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;tree.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;formulations.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;decomposition.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;objective.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;callbacks.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">include(&quot;utils.jl&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function model_factory(::Val{true}, optimizer; kw...)::JuMP.Model
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    m = JuMP.direct_model(optimizer.optimizer_constructor())
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for (param, val) in optimizer.params
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        set_optimizer_attribute(m, param, val)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for (key, val) in kw
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if key !== :direct_model
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            @warn &quot;Unsupported keyword argument $key when creating a BlockModel with direct_model=true.&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return m
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function model_factory(::Val{false}, args...; kw...)::JuMP.Model
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return JuMP.Model(args...; kw...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function BlockModel(args...; kw...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    dm = haskey(kw, :direct_model) ? kw[:direct_model] : false
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    m = model_factory(Val(dm), args...; kw...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    JuMP.set_optimize_hook(m, optimize!)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return m
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-BlockDecomposition-OYIcC-src-BlockDecomposition-jl-optimize-48"></a>
+              4544 (99.80%) samples spent in optimize!<br />
+              0 (ex.),
+              4544 (100.00%) (incl.)
+              when called from
+              #optimize!#100
+              <a href="optimizer_interface-jl-3ed291aee8681480bc02-line.html#Loptimizer_interface-jl-3ed291aee8681480bc02-line.html-120">line 120</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function optimize!(m::JuMP.Model)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    register_decomposition(m)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-51"></a>51</td>
+          <td></td>
+          <td>4544 (99.80%)</td>
+          <td>
+            <div class="callees">
+              4544 (100.00%)
+              samples spent calling
+              <a href="optimizer_interface-jl-3ed291aee8681480bc02-line.html#S-Users-guimarqu-julia-packages-JuMP-qhoVb-src-optimizer_interface-jl-optimize-kw-106">optimize!##kw</a><br />
+            </div>
+            <span class="code">    return JuMP.optimize!(m, ignore_optimize_hook = true)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function annotation(model::JuMP.Model, objref::JuMP.ConstraintRef)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    MOI.get(model, ConstraintDecomposition(), objref)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function annotation(model::JuMP.Model, objref::JuMP.VariableRef)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    MOI.get(model, VariableDecomposition(), objref)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="LBlockDecomposition-jl-bbe2ea2c64345df27613-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end # module
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

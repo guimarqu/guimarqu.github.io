@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/.julia/packages/DynamicSparseArrays/ClbZo/src/finds.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:47:12 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    find(array::Vector{Union{Nothing, T}}, key, from::Int, to::Int) where {T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Look for the element indexed by `key` in the subarray of `array` starting at 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">position `from` and ending at position `to`.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">If the element is in the subarray, the method returns the position and the 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">the element.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">If the element is not in the subarray, the method returns the position and the 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">element that has the nearest inferior key (predecessor) in the subarray. 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">If the element has no predecessor in the subarray, the method returns the
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">position and the last element located in the left outside.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    find(array::Vector{Union{Nothing, T}}, key) where {T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Look for the element indexed by `key` in `array`.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">If the element is in the `array`, the method returns the position and the 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">the element.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">If the element is not in the `array`, the method returns the position and the 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">element that has the nearest inferior key (predecessor). 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">If the element has no predecessor, the method returns `(0, nothing)`.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function find(array::Vector{Union{Nothing, T}}, key, from::Int, to::Int) where {T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-30"></a>30</td>
+          <td>1 (0.02%)</td>
+          <td>34 (0.75%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-30"></a>
+              34 (0.75%) samples spent in find<br />
+              0 (ex.),
+              1 (2.94%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              1 (100.00%) (ex.),
+              33 (97.06%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              33 (97.06%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-441">&lt;=</a><br />
+            </div>
+            <span class="code">    while from &lt;= to
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-31"></a>31</td>
+          <td></td>
+          <td>53 (1.16%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-31"></a>
+              53 (1.16%) samples spent in find<br />
+              0 (ex.),
+              4 (7.55%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              0 (ex.),
+              49 (92.45%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              46 (86.79%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-div-260">div</a><br />
+              7 (13.21%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-86">+</a><br />
+            </div>
+            <span class="code">        mid = (from + to) Ã· 2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        i = mid
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-33"></a>33</td>
+          <td>284 (6.24%)</td>
+          <td>364 (7.99%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-33"></a>
+              364 (7.99%) samples spent in find<br />
+              1 (0.35%) (ex.),
+              2 (0.55%) (incl.)
+              when called from
+              insert!
+              <a href="writes-jl-2537cd9a9d06f64e3dca-line.html#Lwrites-jl-2537cd9a9d06f64e3dca-line.html-15">line 15</a><br />
+              80 (28.17%) (ex.),
+              100 (27.47%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              203 (71.48%) (ex.),
+              262 (71.98%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              17 (4.67%)
+              samples spent calling
+              <a href="operators-jl-3310278f8b41d892ffb5-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-operators-jl-350">&gt;=</a><br />
+              63 (17.31%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_isempty-2">_isempty</a><br />
+            </div>
+            <span class="code">        while i &gt;= from &amp;&amp; _isempty(array, i)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            i -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if i &lt; from
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            from = mid + 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-39"></a>39</td>
+          <td>11 (0.24%)</td>
+          <td>881 (19.35%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-39"></a>
+              881 (19.35%) samples spent in find<br />
+              0 (ex.),
+              4 (0.45%) (incl.)
+              when called from
+              insert!
+              <a href="writes-jl-2537cd9a9d06f64e3dca-line.html#Lwrites-jl-2537cd9a9d06f64e3dca-line.html-15">line 15</a><br />
+              0 (ex.),
+              325 (36.89%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+              11 (100.00%) (ex.),
+              552 (62.66%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+            </div>
+            <div class="callees">
+              545 (61.86%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_getkey-37">_getkey</a><br />
+              75 (8.51%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_getkey-32">_getkey</a><br />
+              250 (28.38%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_getkey-35">_getkey</a><br />
+            </div>
+            <span class="code">            curkey = _getkey(array, i)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-40"></a>40</td>
+          <td>27 (0.59%)</td>
+          <td>59 (1.30%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-40"></a>
+              59 (1.30%) samples spent in find<br />
+              6 (22.22%) (ex.),
+              9 (15.25%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              21 (77.78%) (ex.),
+              50 (84.75%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              32 (54.24%)
+              samples spent calling
+              <a href="vcids-jl-b4849019c83cb419ae4e-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-vcids-jl-63">&gt;</a><br />
+            </div>
+            <span class="code">            if curkey &gt; key
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-41"></a>41</td>
+          <td>10 (0.22%)</td>
+          <td>15 (0.33%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-41"></a>
+              15 (0.33%) samples spent in find<br />
+              0 (ex.),
+              1 (6.67%) (incl.)
+              when called from
+              insert!
+              <a href="writes-jl-2537cd9a9d06f64e3dca-line.html#Lwrites-jl-2537cd9a9d06f64e3dca-line.html-15">line 15</a><br />
+              3 (30.00%) (ex.),
+              7 (46.67%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              7 (70.00%) (ex.),
+              7 (46.67%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              5 (33.33%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-85">-</a><br />
+            </div>
+            <span class="code">                to = i - 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-42"></a>42</td>
+          <td>83 (1.82%)</td>
+          <td>114 (2.50%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-42"></a>
+              114 (2.50%) samples spent in find<br />
+              0 (ex.),
+              4 (3.51%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              83 (100.00%) (ex.),
+              110 (96.49%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              31 (27.19%)
+              samples spent calling
+              <a href="vcids-jl-b4849019c83cb419ae4e-line.html#S-Users-guimarqu-optim-Coluna-jl-src-MathProg-vcids-jl-60">&lt;</a><br />
+            </div>
+            <span class="code">            elseif curkey &lt; key
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-43"></a>43</td>
+          <td>2 (0.04%)</td>
+          <td>20 (0.44%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-43"></a>
+              20 (0.44%) samples spent in find<br />
+              0 (ex.),
+              5 (25.00%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              2 (100.00%) (ex.),
+              15 (75.00%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              18 (90.00%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-86">+</a><br />
+            </div>
+            <span class="code">                from = mid + 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-45"></a>45</td>
+          <td>3 (0.07%)</td>
+          <td>51 (1.12%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-45"></a>
+              51 (1.12%) samples spent in find<br />
+              3 (100.00%) (ex.),
+              3 (5.88%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+              0 (ex.),
+              48 (94.12%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+            </div>
+            <div class="callees">
+              48 (94.12%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-getindex-809">getindex</a><br />
+            </div>
+            <span class="code">                return (i, array[i])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    i = to
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-50"></a>50</td>
+          <td>6 (0.13%)</td>
+          <td>11 (0.24%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-50"></a>
+              11 (0.24%) samples spent in find<br />
+              0 (ex.),
+              1 (9.09%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-60">line 60</a><br />
+              6 (100.00%) (ex.),
+              10 (90.91%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+            </div>
+            <div class="callees">
+              5 (45.45%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_isempty-2">_isempty</a><br />
+            </div>
+            <span class="code">    while i &gt; 0 &amp;&amp; _isempty(array, i)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        i -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if i &gt; 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-54"></a>54</td>
+          <td>589 (12.94%)</td>
+          <td>597 (13.11%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-54"></a>
+              597 (13.11%) samples spent in find<br />
+              589 (100.00%) (ex.),
+              597 (100.00%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204">line 204</a><br />
+            </div>
+            <div class="callees">
+              8 (1.34%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-getindex-809">getindex</a><br />
+            </div>
+            <span class="code">        return (i, array[i])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return (0, nothing)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function find(array::Vector{Union{Nothing, T}}, key) where {T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-60"></a>60</td>
+          <td></td>
+          <td>970 (21.30%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-60"></a>
+              970 (21.30%) samples spent in find<br />
+              0 (ex.),
+              8 (0.82%) (incl.)
+              when called from
+              setindex!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-316">line 316</a><br />
+              0 (ex.),
+              962 (99.18%) (incl.)
+              when called from
+              getindex
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-239">line 239</a><br />
+            </div>
+            <div class="callees">
+              2 (0.21%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-length-219">length</a><br />
+              1 (0.10%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-50">find</a><br />
+              15 (1.55%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-43">find</a><br />
+              48 (4.95%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-45">find</a><br />
+              7 (0.72%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-41">find</a><br />
+              33 (3.40%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-30">find</a><br />
+              49 (5.05%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-31">find</a><br />
+              68 (7.01%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find">find</a><br />
+              325 (33.51%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-39">find</a><br />
+              50 (5.15%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-40">find</a><br />
+              110 (11.34%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-42">find</a><br />
+              262 (27.01%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-33">find</a><br />
+            </div>
+            <span class="code">    return find(array, key, 1, length(array))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lfinds-jl-5051ea635711c1663770-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

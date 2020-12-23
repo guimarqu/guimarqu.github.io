@@ -1,0 +1,4593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/.julia/packages/DynamicSparseArrays/ClbZo/src/pcsr.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:47:12 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Matrix whose columns are indexed by an integer.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">mutable struct PackedCSC{K,T&lt;:Real}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    nb_partitions::Int
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    semaphores::Vector{Union{Nothing, Int}} # pos of the semaphore in the pma
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    #nb_elements_in_partition::Vector{Int} # nb elements after each semaphore
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pma::PackedMemoryArray{K,T,NoPredictor}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Matrix
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">mutable struct MappedPackedCSC{K,L,T&lt;:Real}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_keys::Vector{Union{Nothing, L}} # the position of the key is the position of the column
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc::PackedCSC{K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">nbpartitions(pcsc::PackedCSC) = pcsc.nb_partitions
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">nbpartitions(mpcsc::MappedPackedCSC) = nbpartitions(mpcsc.pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">semaphore_key(::Type{K}) where {K&lt;:Integer} = zero(K)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function PackedCSC(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    row_keys::Vector{Vector{L}}, values::Vector{Vector{T}},
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    combine::Function = +
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">) where {L,T &lt;: Real}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    nb_semaphores = length(row_keys)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    @assert nb_semaphores == length(values)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    applicable(semaphore_key, L) || error(&quot;method `semaphore_key` not implemented for type $(L).&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc_keys = Vector{L}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc_values = Vector{T}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for semaphore_id in 1:nb_semaphores
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # Insert the semaphore
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(pcsc_keys, semaphore_key(L))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(pcsc_values, T(semaphore_id)) # This is why T &lt;: Real
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # Create the column
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        nkeys = Vector(row_keys[semaphore_id])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        nvalues = Vector(values[semaphore_id])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _prepare_keys_vals!(nkeys, nvalues, combine)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(pcsc_keys, nkeys...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(pcsc_values, nvalues...)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pma = PackedMemoryArray(pcsc_keys, pcsc_values, sort = false)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    semaphores = Vector{Union{Int, Nothing}}(zeros(Int, nb_semaphores))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for (pos, pair) in enumerate(pma.array)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if pair != nothing &amp;&amp; pair[1] == semaphore_key(L)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            id = Int(pair[2])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            semaphores[id] = pos
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return PackedCSC(nb_semaphores, semaphores, pma)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function PackedCSC(::Type{K}, ::Type{T}) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pma = PackedMemoryArray(K, T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return PackedCSC(0, Vector{Union{Int, Nothing}}(), pma)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">PackedCSC(pcsc::PackedCSC) = deepcopy(pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">MappedPackedCSC(mpcsc::MappedPackedCSC) = deepcopy(mpcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function MappedPackedCSC(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-63"></a>63</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    row_keys::Vector{Vector{K}}, column_keys::Vector{L},
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    values::Vector{Vector{T}}, combine::Function = +
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">) where {K,L,T &lt;: Real}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-66"></a>66</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc = PackedCSC(row_keys, values, combine)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_keys = Vector{Union{Nothing,L}}(column_keys)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-68"></a>68</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return MappedPackedCSC(col_keys, pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-69"></a>69</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-70"></a>70</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-71"></a>71</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># TODO : remove
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-72"></a>72</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function MappedPackedCSC(::Type{K}, ::Type{L}, ::Type{T}) where {K,L,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-73"></a>73</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc = PackedCSC(K, T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-74"></a>74</td>
+          <td></td>
+          <td>1 (0.02%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-MappedPackedCSC-74"></a>
+              1 (0.02%) samples spent in MappedPackedCSC<br />
+              0 (ex.),
+              1 (100.00%) (incl.)
+              when called from
+              dynamicsparsecolmajor
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-411">line 411</a><br />
+            </div>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="boot-jl-b33a5d3ef86e772d0069-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-boot-jl-Array-425">Array</a><br />
+            </div>
+            <span class="code">    col_keys = Vector{Union{Nothing, L}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-75"></a>75</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return MappedPackedCSC(col_keys, pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-76"></a>76</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-77"></a>77</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-78"></a>78</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _even_rebalance!(pcsc::PackedCSC, window_start, window_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-79"></a>79</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    capacity = window_end - window_start + 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-80"></a>80</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if capacity == pcsc.pma.segment_capacity
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-81"></a>81</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # It is a leaf within the treshold, we stop
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-82"></a>82</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-83"></a>83</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-84"></a>84</td>
+          <td></td>
+          <td>17 (0.37%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_even_rebalance-84"></a>
+              17 (0.37%) samples spent in _even_rebalance!<br />
+              0 (ex.),
+              6 (35.29%) (incl.)
+              when called from
+              _insert!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-300">line 300</a><br />
+              0 (ex.),
+              11 (64.71%) (incl.)
+              when called from
+              addpartition!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-127">line 127</a><br />
+            </div>
+            <div class="callees">
+              17 (100.00%)
+              samples spent calling
+              <a href="moves-jl-6078a7b39a69de87ed63-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-moves-jl-pack-93">pack!</a><br />
+            </div>
+            <span class="code">    pack!(pcsc.pma.array, window_start, window_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-85"></a>85</td>
+          <td></td>
+          <td>22 (0.48%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_even_rebalance-85"></a>
+              22 (0.48%) samples spent in _even_rebalance!<br />
+              0 (ex.),
+              10 (45.45%) (incl.)
+              when called from
+              addpartition!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-127">line 127</a><br />
+              0 (ex.),
+              12 (54.55%) (incl.)
+              when called from
+              _insert!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-300">line 300</a><br />
+            </div>
+            <div class="callees">
+              22 (100.00%)
+              samples spent calling
+              <a href="moves-jl-6078a7b39a69de87ed63-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-moves-jl-spread-141">spread!</a><br />
+            </div>
+            <span class="code">    spread!(pcsc.pma.array, window_start, window_end, nbcells, pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-86"></a>86</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-87"></a>87</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-88"></a>88</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-89"></a>89</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function addpartition!(pcsc::PackedCSC{K,T}) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-90"></a>90</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_key = semaphore_key(K)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-91"></a>91</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_pos = length(pcsc.pma.array)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-92"></a>92</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc.nb_partitions += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-93"></a>93</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    push!(pcsc.semaphores, sem_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-94"></a>94</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_val = T(length(pcsc.semaphores))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-95"></a>95</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    insert_pos, new_elem = _insert!(pcsc.pma.array, sem_key, sem_val, sem_pos, pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-96"></a>96</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if new_elem
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-97"></a>97</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        pcsc.pma.nb_elements += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-98"></a>98</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        win_start, win_end, nbcells = _look_for_rebalance!(pcsc.pma, insert_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-99"></a>99</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _even_rebalance!(pcsc, win_start, win_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-100"></a>100</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-101"></a>101</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-102"></a>102</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-103"></a>103</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-addpartition-103"></a>
+              566 (12.43%) samples spent in addpartition!<br />
+              58 (100.00%) (ex.),
+              566 (100.00%) (incl.)
+              when called from
+              addcolumn!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-149">line 149</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-104"></a>104</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function addpartition!(pcsc::PackedCSC{K,T}, prev_sem_id::Int) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-105"></a>105</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_key = semaphore_key(K)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-106"></a>106</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    nb_semaphores = length(pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-107"></a>107</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_pos = 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-108"></a>108</td>
+          <td>2 (0.04%)</td>
+          <td>2 (0.04%)</td>
+          <td>
+            <span class="code">    if pcsc.semaphores[prev_sem_id + 1] === nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-109"></a>109</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        next_sem_id = _nextnonemptypos(pcsc.semaphores, prev_sem_id + 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-110"></a>110</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        sem_pos = pcsc.semaphores[next_sem_id] - 1 #insert the new semaphore in the pma.array just before the next one
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-111"></a>111</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-112"></a>112</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        sem_pos = pcsc.semaphores[prev_sem_id + 1] - 1 #insert the new semaphore just before the next one
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-113"></a>113</td>
+          <td></td>
+          <td>1 (0.02%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-resize-1085">resize!</a><br />
+            </div>
+            <span class="code">        resize!(pcsc.semaphores, nb_semaphores + 1) # create room for the position of the new semaphore
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-114"></a>114</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        for i in nb_semaphores:-1:(prev_sem_id+1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-115"></a>115</td>
+          <td></td>
+          <td>71 (1.56%)</td>
+          <td>
+            <div class="callees">
+              65 (91.55%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-getindex-809">getindex</a><br />
+              6 (8.45%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+            </div>
+            <span class="code">            moved_sem_pos = pcsc.semaphores[i]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-116"></a>116</td>
+          <td>34 (0.75%)</td>
+          <td>92 (2.02%)</td>
+          <td>
+            <div class="callees">
+              4 (4.35%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-86">+</a><br />
+              54 (58.70%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-setindex-847">setindex!</a><br />
+            </div>
+            <span class="code">            pcsc.semaphores[i+1] = pcsc.semaphores[i]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-117"></a>117</td>
+          <td></td>
+          <td>351 (7.71%)</td>
+          <td>
+            <div class="callees">
+              5 (1.42%)
+              samples spent calling
+              <a href="range-jl-d8a0db6f2ac6f83b9aec-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-range-jl-iterate-624">iterate</a><br />
+              19 (5.41%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+              19 (5.41%)
+              samples spent calling
+              <a href="float-jl-2bec787ea8ba61d96af5-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-float-jl-Float64-60">Float64</a><br />
+              308 (87.75%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-setindex-847">setindex!</a><br />
+            </div>
+            <span class="code">            pcsc.pma.array[moved_sem_pos] = (sem_key, T(i+1))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-118"></a>118</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-119"></a>119</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-120"></a>120</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc.nb_partitions += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-121"></a>121</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_val = T(prev_sem_id+1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-122"></a>122</td>
+          <td></td>
+          <td>4 (0.09%)</td>
+          <td>
+            <div class="callees">
+              4 (100.00%)
+              samples spent calling
+              <a href="writes-jl-2537cd9a9d06f64e3dca-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-writes-jl-_insert-25">_insert!</a><br />
+            </div>
+            <span class="code">    insert_pos, new_elem = _insert!(pcsc.pma.array, sem_key, sem_val, sem_pos, pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-123"></a>123</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc.semaphores[prev_sem_id+1] = insert_pos
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-124"></a>124</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if new_elem
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-125"></a>125</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        pcsc.pma.nb_elements += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-126"></a>126</td>
+          <td></td>
+          <td>2 (0.04%)</td>
+          <td>
+            <div class="callees">
+              2 (100.00%)
+              samples spent calling
+              <a href="pma-jl-7ebd1e6ff19baccb8aa6-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pma-jl-_look_for_rebalance-148">_look_for_rebalance!</a><br />
+            </div>
+            <span class="code">        win_start, win_end, nbcells = _look_for_rebalance!(pcsc.pma, insert_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-127"></a>127</td>
+          <td></td>
+          <td>21 (0.46%)</td>
+          <td>
+            <div class="callees">
+              10 (47.62%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_even_rebalance-85">_even_rebalance!</a><br />
+              11 (52.38%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_even_rebalance-84">_even_rebalance!</a><br />
+            </div>
+            <span class="code">        _even_rebalance!(pcsc, win_start, win_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-128"></a>128</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-129"></a>129</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-130"></a>130</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-131"></a>131</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-addcolumn-131"></a>
+              1128 (24.77%) samples spent in addcolumn!<br />
+              125 (100.00%) (ex.),
+              1128 (100.00%) (incl.)
+              when called from
+              setindex!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-318">line 318</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-132"></a>132</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function addcolumn!(mpcsc::MappedPackedCSC{K,L,T}, col::L, prev_col_pos::Int) where {K,L,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-133"></a>133</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_pos = 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-134"></a>134</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if (prev_col_pos == length(mpcsc.col_keys)) # we add the partition and the semaphore at the end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-135"></a>135</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(mpcsc.col_keys, col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-136"></a>136</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        addpartition!(mpcsc.pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-137"></a>137</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        col_pos = length(mpcsc.col_keys)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-138"></a>138</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-139"></a>139</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if mpcsc.col_keys[prev_col_pos+1] === nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-140"></a>140</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            mpcsc.col_keys[prev_col_pos+1] = col
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-141"></a>141</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-142"></a>142</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            nbcolkeys = length(mpcsc.col_keys)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-143"></a>143</td>
+          <td></td>
+          <td>1 (0.02%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-resize-1085">resize!</a><br />
+            </div>
+            <span class="code">            resize!(mpcsc.col_keys, nbcolkeys + 1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-144"></a>144</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            for i in nbcolkeys:-1:(prev_col_pos+1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-145"></a>145</td>
+          <td>125 (2.75%)</td>
+          <td>561 (12.32%)</td>
+          <td>
+            <div class="callees">
+              17 (3.03%)
+              samples spent calling
+              <a href="range-jl-d8a0db6f2ac6f83b9aec-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-range-jl-iterate-624">iterate</a><br />
+              387 (68.98%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-setindex-847">setindex!</a><br />
+              32 (5.70%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-getindex-809">getindex</a><br />
+            </div>
+            <span class="code">                mpcsc.col_keys[i+1] = mpcsc.col_keys[i]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-146"></a>146</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-147"></a>147</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            mpcsc.col_keys[prev_col_pos+1] = col
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-148"></a>148</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-149"></a>149</td>
+          <td></td>
+          <td>566 (12.43%)</td>
+          <td>
+            <div class="callees">
+              566 (100.00%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-addpartition-103">addpartition!</a><br />
+            </div>
+            <span class="code">        addpartition!(mpcsc.pcsc, prev_col_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-150"></a>150</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        col_pos = prev_col_pos+1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-151"></a>151</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-152"></a>152</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return col_pos
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-153"></a>153</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-154"></a>154</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-155"></a>155</td>
+          <td></td>
+          <td>70 (1.54%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_pos_of_partition_start-155"></a>
+              70 (1.54%) samples spent in _pos_of_partition_start<br />
+              0 (ex.),
+              70 (100.00%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-202">line 202</a><br />
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_pos_of_partition_end-155"></a>
+              29 (0.64%) samples spent in _pos_of_partition_end<br />
+              10 (90.91%) (ex.),
+              28 (96.55%) (incl.)
+              when called from
+              find
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-203">line 203</a><br />
+            </div>
+            <div class="callees">
+              8 (11.43%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+              62 (88.57%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-getindex-809">getindex</a><br />
+            </div>
+            <span class="code">_pos_of_partition_start(pcsc, partition) = pcsc.semaphores[partition]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-156"></a>156</td>
+          <td>10 (0.22%)</td>
+          <td>10 (0.22%)</td>
+          <td>
+            <span class="code">function _pos_of_partition_end(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-157"></a>157</td>
+          <td></td>
+          <td>5 (0.11%)</td>
+          <td>
+            <div class="callees">
+              4 (80.00%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+              1 (20.00%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-length-219">length</a><br />
+            </div>
+            <span class="code">    pos = length(pcsc.pma.array)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-158"></a>158</td>
+          <td></td>
+          <td>7 (0.15%)</td>
+          <td>
+            <div class="callees">
+              1 (14.29%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_nextnonemptypos-16">_nextnonemptypos</a><br />
+              2 (28.57%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_nextnonemptypos-14">_nextnonemptypos</a><br />
+              4 (57.14%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-_nextnonemptypos">_nextnonemptypos</a><br />
+            </div>
+            <span class="code">    next_partition = _nextnonemptypos(pcsc.semaphores, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-159"></a>159</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if next_partition != 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-160"></a>160</td>
+          <td></td>
+          <td>6 (0.13%)</td>
+          <td>
+            <div class="callees">
+              4 (66.67%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-85">-</a><br />
+              2 (33.33%)
+              samples spent calling
+              <a href="array-jl-6d11cb230b531404c79b-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-array-jl-getindex-809">getindex</a><br />
+            </div>
+            <span class="code">        pos = pcsc.semaphores[next_partition] - 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-161"></a>161</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-162"></a>162</td>
+          <td>1 (0.02%)</td>
+          <td>1 (0.02%)</td>
+          <td>
+            <span class="code">    return pos
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-163"></a>163</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-164"></a>164</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-165"></a>165</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function deletepartition!(pcsc::PackedCSC{K,T}, partition::Int) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-166"></a>166</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    len = length(pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-167"></a>167</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    1 &lt;= partition &lt;= len || throw(BoundsError(&quot;cannot access $(len)-elements partition at index [$(partition)].&quot;))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-168"></a>168</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc.nb_partitions -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-169"></a>169</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_key = semaphore_key(K)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-170"></a>170</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_pos = _pos_of_partition_start(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-171"></a>171</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    partition_end_pos = _pos_of_partition_end(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-172"></a>172</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    # Delete semaphore &amp; content of the column
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-173"></a>173</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pos, nb_elems_rm = purge!(pcsc.pma.array, sem_pos, partition_end_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-174"></a>174</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if nb_elems_rm &gt; 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-175"></a>175</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        pcsc.pma.nb_elements -= nb_elems_rm
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-176"></a>176</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        win_start, win_end, nbcells = _look_for_rebalance!(pcsc.pma, pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-177"></a>177</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _even_rebalance!(pcsc, win_start, win_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-178"></a>178</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-179"></a>179</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    pcsc.semaphores[partition] = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-180"></a>180</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-181"></a>181</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-182"></a>182</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-183"></a>183</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function deletecolumn!(mpcsc::MappedPackedCSC{K,L,T}, col::L) where {K,L,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-184"></a>184</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_pos, col_key = find(mpcsc.col_keys, col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-185"></a>185</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_key != col &amp;&amp; throws(ArgumentError(&quot;column $(col) does not exist.&quot;))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-186"></a>186</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    mpcsc.col_keys[col_pos] = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-187"></a>187</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    deletepartition!(mpcsc.pcsc, col_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-188"></a>188</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-189"></a>189</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-190"></a>190</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-191"></a>191</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.ndims(matrix::PackedCSC) = 2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-192"></a>192</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.length(matrix::PackedCSC) = length(matrix.pma) - matrix.nb_partitions
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-193"></a>193</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#Base.size(matrix::PackedCSC) = (length(matrix.pma.array), matrix.nb_partitions)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-194"></a>194</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-195"></a>195</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.ndims(matrix::MappedPackedCSC) = ndims(matrix.pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-196"></a>196</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.length(matrix::MappedPackedCSC) = length(matrix.pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-197"></a>197</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">#Base.size(matrix::MappedPackedCSC) = size(matrix.pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-198"></a>198</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-199"></a>199</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-200"></a>200</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-find-200"></a>
+              1490 (32.73%) samples spent in find<br />
+              90 (98.90%) (ex.),
+              1489 (99.93%) (incl.)
+              when called from
+              getindex
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-208">line 208</a><br />
+            </div>
+            <span class="code"># getindex
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-201"></a>201</td>
+          <td>19 (0.42%)</td>
+          <td>19 (0.42%)</td>
+          <td>
+            <span class="code">function find(pcsc::PackedCSC, partition, key)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-202"></a>202</td>
+          <td></td>
+          <td>70 (1.54%)</td>
+          <td>
+            <div class="callees">
+              70 (100.00%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_pos_of_partition_start-155">_pos_of_partition_start</a><br />
+            </div>
+            <span class="code">    from = _pos_of_partition_start(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-203"></a>203</td>
+          <td>67 (1.47%)</td>
+          <td>95 (2.09%)</td>
+          <td>
+            <div class="callees">
+              28 (29.47%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_pos_of_partition_end-155">_pos_of_partition_end</a><br />
+            </div>
+            <span class="code">    to = _pos_of_partition_end(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-204"></a>204</td>
+          <td>4 (0.09%)</td>
+          <td>1305 (28.66%)</td>
+          <td>
+            <div class="callees">
+              1 (0.08%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-30">find</a><br />
+              7 (0.54%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-41">find</a><br />
+              3 (0.23%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-45">find</a><br />
+              5 (0.38%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-43">find</a><br />
+              6 (0.46%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-find">find</a><br />
+              10 (0.77%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-50">find</a><br />
+              100 (7.66%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-33">find</a><br />
+              4 (0.31%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-42">find</a><br />
+              552 (42.30%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-39">find</a><br />
+              4 (0.31%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-31">find</a><br />
+              1 (0.08%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+              9 (0.69%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-40">find</a><br />
+              597 (45.75%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-54">find</a><br />
+              2 (0.15%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find">find</a><br />
+            </div>
+            <span class="code">    return find(pcsc.pma.array, key, from, to)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-205"></a>205</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-206"></a>206</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-getindex-206"></a>
+              1796 (39.45%) samples spent in getindex<br />
+              43 (91.49%) (ex.),
+              1792 (99.78%) (incl.)
+              when called from
+              getindex
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-243">line 243</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-207"></a>207</td>
+          <td>25 (0.55%)</td>
+          <td>25 (0.55%)</td>
+          <td>
+            <span class="code">function Base.getindex(pcsc::PackedCSC{K,T}, key::K, partition::Int) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-208"></a>208</td>
+          <td>16 (0.35%)</td>
+          <td>1765 (38.77%)</td>
+          <td>
+            <div class="callees">
+              1489 (84.36%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-find-200">find</a><br />
+              1 (0.06%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-200">find</a><br />
+              258 (14.62%)
+              samples spent calling
+              <a href="tuple-jl-b0748e1a1b5a5adf7675-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-tuple-jl-indexed_iterate-81">indexed_iterate</a><br />
+              1 (0.06%)
+              samples spent calling
+              <a href="utils-jl-1cbde9cd39893b9cdc33-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-utils-jl-_getkey-37">_getkey</a><br />
+            </div>
+            <span class="code">    fpos, fpair = find(pcsc, partition, key)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-209"></a>209</td>
+          <td>5 (0.11%)</td>
+          <td>5 (0.11%)</td>
+          <td>
+            <span class="code">    fpair != nothing &amp;&amp; fpair[1] == key &amp;&amp; return fpair[2]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-210"></a>210</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return zero(T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-211"></a>211</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-212"></a>212</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-213"></a>213</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.getindex(pcsc::PackedCSC{K,T}, key::K, ::Colon) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-214"></a>214</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elements = Vector{Tuple{K,T}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-215"></a>215</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    partition_id = 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-216"></a>216</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_key = semaphore_key(K)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-217"></a>217</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for (k, v) in pcsc.pma
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-218"></a>218</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if k == sem_key
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-219"></a>219</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            partition_id = Int(v)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-220"></a>220</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-221"></a>221</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if k == key
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-222"></a>222</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            push!(elements, (partition_id, v))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-223"></a>223</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-224"></a>224</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-225"></a>225</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return PackedMemoryArray(elements)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-226"></a>226</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-227"></a>227</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-228"></a>228</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.getindex(pcsc::PackedCSC{K,T}, ::Colon, partition::Int) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-229"></a>229</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elements = Vector{Tuple{K,T}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-230"></a>230</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    partition_start = _pos_of_partition_start(pcsc, partition) + 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-231"></a>231</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    partition_end = _pos_of_partition_end(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-232"></a>232</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for elem in pcsc.pma.array[partition_start:partition_end]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-233"></a>233</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        elem !== nothing &amp;&amp; push!(elements, elem)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-234"></a>234</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-235"></a>235</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return PackedMemoryArray(elements)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-236"></a>236</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-237"></a>237</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-getindex-237"></a>
+              2781 (61.08%) samples spent in getindex<br />
+              24 (100.00%) (ex.),
+              2781 (100.00%) (incl.)
+              when called from
+              getindex
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#Lmatrix-jl-e7142d265b209df01c6e-line.html-27">line 27</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-238"></a>238</td>
+          <td>13 (0.29%)</td>
+          <td>13 (0.29%)</td>
+          <td>
+            <span class="code">function Base.getindex(mpcsc::MappedPackedCSC{L,K,T}, row::L, col::K) where {L,K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-239"></a>239</td>
+          <td></td>
+          <td>965 (21.19%)</td>
+          <td>
+            <div class="callees">
+              962 (99.69%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-60">find</a><br />
+              3 (0.31%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+            </div>
+            <span class="code">    col_pos, col_key = find(mpcsc.col_keys, col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-240"></a>240</td>
+          <td>1 (0.02%)</td>
+          <td>1 (0.02%)</td>
+          <td>
+            <span class="code">    if col_key != col # The column does not exist
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-241"></a>241</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return zero(T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-242"></a>242</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-243"></a>243</td>
+          <td>7 (0.15%)</td>
+          <td>1799 (39.51%)</td>
+          <td>
+            <div class="callees">
+              1792 (99.61%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-getindex-206">getindex</a><br />
+            </div>
+            <span class="code">    return mpcsc.pcsc[row, col_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-244"></a>244</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-245"></a>245</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-246"></a>246</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.getindex(mpcsc::MappedPackedCSC{L,K,T}, row::L, ::Colon) where {L,K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-247"></a>247</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    elements = Vector{Tuple{K,T}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-248"></a>248</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    partition_id = 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-249"></a>249</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    sem_key = semaphore_key(L)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-250"></a>250</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for (k, v) in mpcsc.pcsc.pma
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-251"></a>251</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if k == sem_key
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-252"></a>252</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            partition_id = Int(v)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-253"></a>253</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-254"></a>254</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if k == row
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-255"></a>255</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            push!(elements, (mpcsc.col_keys[partition_id], v))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-256"></a>256</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-257"></a>257</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-258"></a>258</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return PackedMemoryArray(elements)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-259"></a>259</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-260"></a>260</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-261"></a>261</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.getindex(mpcsc::MappedPackedCSC{L,K,T}, ::Colon, col::K) where {L,K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-262"></a>262</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_pos, col_key = find(mpcsc.col_keys, col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-263"></a>263</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if col_key != col # The column does not exist
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-264"></a>264</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return PackedMemoryArray(L,T) # Empty one
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-265"></a>265</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-266"></a>266</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return mpcsc.pcsc[:, col_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-267"></a>267</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-268"></a>268</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-269"></a>269</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-270"></a>270</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-setindex-270"></a>
+              45 (0.99%) samples spent in setindex!<br />
+              2 (100.00%) (ex.),
+              45 (100.00%) (incl.)
+              when called from
+              setindex!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-320">line 320</a><br />
+            </div>
+            <span class="code"># setindex
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-271"></a>271</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.setindex!(pcsc::PackedCSC{K,T}, value, key::K, partition::Int) where {K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-272"></a>272</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if partition &gt; length(pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-273"></a>273</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _add_partitions!(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-274"></a>274</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-275"></a>275</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    from = pcsc.semaphores[partition]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-276"></a>276</td>
+          <td>2 (0.04%)</td>
+          <td>2 (0.04%)</td>
+          <td>
+            <span class="code">    from == nothing &amp;&amp; error(&quot;The partition has been deleted.&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-277"></a>277</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    to = _pos_of_partition_end(pcsc, partition)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-278"></a>278</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if value != zero(T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-279"></a>279</td>
+          <td></td>
+          <td>43 (0.94%)</td>
+          <td>
+            <div class="callees">
+              20 (46.51%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_insert-296">_insert!</a><br />
+              18 (41.86%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_insert-300">_insert!</a><br />
+              5 (11.63%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_insert-299">_insert!</a><br />
+            </div>
+            <span class="code">        _insert!(pcsc, value, key, from, to)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-280"></a>280</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-281"></a>281</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _delete!(pcsc, key, from, to)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-282"></a>282</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-283"></a>283</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-284"></a>284</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-285"></a>285</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-286"></a>286</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _add_partitions!(pcsc, nb_part_to_reach)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-287"></a>287</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    p = length(pcsc.semaphores) + 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-288"></a>288</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while p &lt;= nb_part_to_reach
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-289"></a>289</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        addpartition!(pcsc)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-290"></a>290</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        p += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-291"></a>291</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-292"></a>292</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-293"></a>293</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-294"></a>294</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-295"></a>295</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _insert!(pcsc, value, key, from, to)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-296"></a>296</td>
+          <td>1 (0.02%)</td>
+          <td>20 (0.44%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_insert-296"></a>
+              20 (0.44%) samples spent in _insert!<br />
+              1 (100.00%) (ex.),
+              20 (100.00%) (incl.)
+              when called from
+              setindex!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-279">line 279</a><br />
+            </div>
+            <div class="callees">
+              19 (95.00%)
+              samples spent calling
+              <a href="writes-jl-2537cd9a9d06f64e3dca-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-writes-jl-insert-13">insert!</a><br />
+            </div>
+            <span class="code">    insert_pos, new_elem = insert!(pcsc.pma.array, key, value, from, to, pcsc.semaphores)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-297"></a>297</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if new_elem
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-298"></a>298</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        pcsc.pma.nb_elements += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-299"></a>299</td>
+          <td></td>
+          <td>5 (0.11%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_insert-299"></a>
+              5 (0.11%) samples spent in _insert!<br />
+              0 (ex.),
+              5 (100.00%) (incl.)
+              when called from
+              setindex!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-279">line 279</a><br />
+            </div>
+            <div class="callees">
+              5 (100.00%)
+              samples spent calling
+              <a href="pma-jl-7ebd1e6ff19baccb8aa6-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pma-jl-_look_for_rebalance-148">_look_for_rebalance!</a><br />
+            </div>
+            <span class="code">        win_start, win_end, nbcells = _look_for_rebalance!(pcsc.pma, insert_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-300"></a>300</td>
+          <td></td>
+          <td>18 (0.40%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_insert-300"></a>
+              18 (0.40%) samples spent in _insert!<br />
+              0 (ex.),
+              18 (100.00%) (incl.)
+              when called from
+              setindex!
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-279">line 279</a><br />
+            </div>
+            <div class="callees">
+              12 (66.67%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_even_rebalance-85">_even_rebalance!</a><br />
+              6 (33.33%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-_even_rebalance-84">_even_rebalance!</a><br />
+            </div>
+            <span class="code">        _even_rebalance!(pcsc, win_start, win_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-301"></a>301</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-302"></a>302</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-303"></a>303</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-304"></a>304</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-305"></a>305</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _delete!(pcsc, key, from, to)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-306"></a>306</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    set_pos, deleted_elem = delete!(pcsc.pma.array, key, from, to)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-307"></a>307</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if deleted_elem
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-308"></a>308</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        pcsc.pma.nb_elements -= 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-309"></a>309</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        win_start, win_end, nbcells = _look_for_rebalance!(pcsc.pma, set_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-310"></a>310</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        _even_rebalance!(pcsc, win_start, win_end, nbcells)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-311"></a>311</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-312"></a>312</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-313"></a>313</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-314"></a>314</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-setindex-314"></a>
+              1184 (26.00%) samples spent in setindex!<br />
+              0 (ex.),
+              28 (2.36%) (incl.)
+              when called from
+              setindex!
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#Lmatrix-jl-e7142d265b209df01c6e-line.html-21">line 21</a><br />
+              1 (50.00%) (ex.),
+              1155 (97.55%) (incl.)
+              when called from
+              setindex!
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#Lmatrix-jl-e7142d265b209df01c6e-line.html-20">line 20</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-315"></a>315</td>
+          <td>1 (0.02%)</td>
+          <td>1 (0.02%)</td>
+          <td>
+            <span class="code">function Base.setindex!(mpcsc::MappedPackedCSC{L,K,T}, value::T, row::L, col::K) where {L,K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-316"></a>316</td>
+          <td></td>
+          <td>8 (0.18%)</td>
+          <td>
+            <div class="callees">
+              8 (100.00%)
+              samples spent calling
+              <a href="finds-jl-5051ea635711c1663770-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-finds-jl-find-60">find</a><br />
+            </div>
+            <span class="code">    col_pos, col_key = find(mpcsc.col_keys, col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-317"></a>317</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if col_key != col
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-318"></a>318</td>
+          <td>1 (0.02%)</td>
+          <td>1129 (24.80%)</td>
+          <td>
+            <div class="callees">
+              1128 (99.91%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-addcolumn-131">addcolumn!</a><br />
+            </div>
+            <span class="code">        col_pos = addcolumn!(mpcsc, col, col_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-319"></a>319</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-320"></a>320</td>
+          <td></td>
+          <td>46 (1.01%)</td>
+          <td>
+            <div class="callees">
+              45 (97.83%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-setindex-270">setindex!</a><br />
+              1 (2.17%)
+              samples spent calling
+              <a href="Base-jl-3a80316d2d607e6a20b6-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-Base-jl-getproperty-33">getproperty</a><br />
+            </div>
+            <span class="code">    return setindex!(mpcsc.pcsc, value, row, col_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-321"></a>321</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-322"></a>322</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-323"></a>323</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.setindex!(mpcsc::MappedPackedCSC{L,K,T}, value, row::L, col::K) where {L,K,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-324"></a>324</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return setindex!(mpcsc, T(value), row, col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-325"></a>325</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-326"></a>326</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-327"></a>327</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-328"></a>328</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">## Dynamic sparse matrix builder (exported)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-329"></a>329</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _dynamicsparse(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-330"></a>330</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    I::Vector{K}, J::Vector{L}, V::Vector{T}, combine, always_use_map
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-331"></a>331</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">) where {K,L,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-332"></a>332</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    !always_use_map &amp;&amp; error(&quot;TODO issue #2.&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-333"></a>333</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-334"></a>334</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    p = sortperm(collect(zip(J,I))) # Columns first
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-335"></a>335</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    permute!(I, p)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-336"></a>336</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    permute!(J, p)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-337"></a>337</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    permute!(V, p)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-338"></a>338</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-339"></a>339</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    write_pos = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-340"></a>340</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    read_pos = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-341"></a>341</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    prev_i = I[read_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-342"></a>342</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    prev_j = J[read_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-343"></a>343</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while read_pos &lt; length(I)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-344"></a>344</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        read_pos += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-345"></a>345</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        cur_i = I[read_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-346"></a>346</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        cur_j = J[read_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-347"></a>347</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if prev_i == cur_i &amp;&amp; prev_j == cur_j
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-348"></a>348</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            V[write_pos] = combine(V[write_pos], V[read_pos])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-349"></a>349</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-350"></a>350</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            write_pos += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-351"></a>351</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            if write_pos &lt; read_pos
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-352"></a>352</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                I[write_pos] = cur_i
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-353"></a>353</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                J[write_pos] = cur_j
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-354"></a>354</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">                V[write_pos] = V[read_pos]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-355"></a>355</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-356"></a>356</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            prev_i = cur_i
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-357"></a>357</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            prev_j = cur_j
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-358"></a>358</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-359"></a>359</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-360"></a>360</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    resize!(I, write_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-361"></a>361</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    resize!(J, write_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-362"></a>362</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    resize!(V, write_pos)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-363"></a>363</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-364"></a>364</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    col_keys = Vector{L}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-365"></a>365</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    row_keys = Vector{Vector{K}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-366"></a>366</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    values = Vector{Vector{T}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-367"></a>367</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    i = 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-368"></a>368</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    prev_col = J[1]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-369"></a>369</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    while i &lt;= length(I)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-370"></a>370</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        cur_col = J[i]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-371"></a>371</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if prev_col != cur_col || i == 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-372"></a>372</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            push!(col_keys, cur_col)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-373"></a>373</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            push!(row_keys, Vector{K}())
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-374"></a>374</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">            push!(values, Vector{K}())
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-375"></a>375</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-376"></a>376</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(row_keys[end], I[i])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-377"></a>377</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(values[end], V[i])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-378"></a>378</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        prev_col = cur_col
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-379"></a>379</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        i += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-380"></a>380</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-381"></a>381</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-382"></a>382</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if always_use_map
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-383"></a>383</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return MappedPackedCSC(row_keys, col_keys, values, combine)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-384"></a>384</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    else
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-385"></a>385</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # TODO : Check that we use integer keys for columns, otherwise we have to use a map
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-386"></a>386</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # Add empty columns in the rows_keys vector
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-387"></a>387</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        # We can put all those things in a
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-388"></a>388</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return PackedCSC(rows_keys, values)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-389"></a>389</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-390"></a>390</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-391"></a>391</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-392"></a>392</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function dynamicsparsecolmajor(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-393"></a>393</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    I::Vector{K}, J::Vector{L}, V::Vector{T}, combine::Function = +,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-394"></a>394</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    always_use_map::Bool = true
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-395"></a>395</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">) where {K,L,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-396"></a>396</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    applicable(zero, T) ||
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-397"></a>397</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        throw(ArgumentError(&quot;cannot apply method zero over $(T).&quot;))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-398"></a>398</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    length(I) == length(J) == length(V) ||
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-399"></a>399</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        throw(ArgumentError(&quot;rows, columns, and nonzeros do not have same length.&quot;))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-400"></a>400</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    length(I) &gt; 0 ||
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-401"></a>401</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        throw(ArgumentError(&quot;vectors cannot be empty.&quot;))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-402"></a>402</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    applicable(&lt;, L, L) ||
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-403"></a>403</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        throw(ArgumentError(&quot;set of keys must be totally ordered (define method Base.:&lt; for type $L).&quot;))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-404"></a>404</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return _dynamicsparse(
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-405"></a>405</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        Vector(I), Vector(J), Vector(V), combine, always_use_map
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-406"></a>406</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    )
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-407"></a>407</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-408"></a>408</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-409"></a>409</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># TODO remove
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-410"></a>410</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function dynamicsparsecolmajor(::Type{K}, ::Type{L}, ::Type{T}) where {K,L,T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-411"></a>411</td>
+          <td></td>
+          <td>1 (0.02%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-dynamicsparsecolmajor-411"></a>
+              1 (0.02%) samples spent in dynamicsparsecolmajor<br />
+              0 (ex.),
+              1 (100.00%) (incl.)
+              when called from
+              dynamicsparse
+              <a href="matrix-jl-e7142d265b209df01c6e-line.html#Lmatrix-jl-e7142d265b209df01c6e-line.html-14">line 14</a><br />
+            </div>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="pcsr-jl-3434e77b7ebd3a18dfdd-line.html#S-Users-guimarqu-julia-packages-DynamicSparseArrays-ClbZo-src-pcsr-jl-MappedPackedCSC-74">MappedPackedCSC</a><br />
+            </div>
+            <span class="code">    return MappedPackedCSC(K,L,T)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-412"></a>412</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-413"></a>413</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-414"></a>414</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># Show
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lpcsr-jl-3434e77b7ebd3a18dfdd-line.html-415"></a>415</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># TODO
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

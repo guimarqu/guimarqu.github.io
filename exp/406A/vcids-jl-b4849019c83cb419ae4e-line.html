@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /Users/guimarqu/optim/Coluna.jl/src/MathProg/vcids.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Mer 23 déc 07:47:12 2020</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Id{VC &lt;: AbstractVarConstr}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Coluna identifier of a `Variable` or a `Constraint`.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">It is composed by the following uids:
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">1. `uid`: uid in the formulation where it was generated 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">2. `origin_form_uid`: uid of the formulation where it was generated 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">3. `assigned_form_uid_in_reformulation`: uid of the formulation where it is generated assigned in the reformulation process
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">4. `proc_uid`: Number of the process where it was generated 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-11"></a>11</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">For a origin jump var/constr the origin_form_uid is the jump model while the assigned_form_uid_in_reformulation is the spform for a pure spform and the master for a pure master var. For a added var/constr the origin_form_uid is where is was created : for instance a master column &#39;s orginal formulation  is the subproblem for which it was a solution and is assigned formulation is the master program.Number of the process where it was generated 
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">struct Id{VC &lt;: AbstractVarConstr}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    duty::Duty{VC}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    uid::Int
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    origin_form_uid::FormId
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    assigned_form_uid_in_reformulation::FormId
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-18"></a>18</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    proc_uid::Int
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-19"></a>19</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    _hash::Int
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-22"></a>22</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function _create_hash(uid::Int, origin_form_uid::FormId, proc_uid::Int)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    return (
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        uid * Cl._params_.max_nb_formulations * Cl._params_.max_nb_processes
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        + origin_form_uid * Cl._params_.max_nb_processes
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        + proc_uid
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    )
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Id{VC}(uid::Int, form_uid::Int) where {VC&lt;:AbstractVarConstr}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Constructs an `Id` of type `VC` with `uid` = uid and `form_uid` = form_uid.
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-34"></a>34</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Id{VC}(duty::Duty{VC}, uid::Int, origin_form_uid::FormId, assigned_form_uid::FormId) where {VC}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-36"></a>36</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    proc_uid = Distributed.myid()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Id{VC}(duty, uid, origin_form_uid, assigned_form_uid, proc_uid, _create_hash(uid, origin_form_uid, proc_uid))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-38"></a>38</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Id{VC}(duty::Duty{VC}, uid::Int, origin_form_uid::FormId) where {VC}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    proc_uid = Distributed.myid()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-42"></a>42</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Id{VC}(duty, uid, origin_form_uid, origin_form_uid, proc_uid, _create_hash(uid, origin_form_uid, proc_uid))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Id{VC}(duty::Duty{VC}, id::Id{VC}, assigned_form_uid_in_reformulation::FormId) where {VC}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Id{VC}(duty, id.uid, id.origin_form_uid, assigned_form_uid_in_reformulation, id.proc_uid, id._hash)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Id{VC}(duty::Duty{VC}, id::Id{VC}) where {VC}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    Id{VC}(duty, id.uid, id.origin_form_uid, id.assigned_form_uid_in_reformulation, id.proc_uid, id._hash)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-53"></a>53</td>
+          <td></td>
+          <td>30 (0.66%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-vcids-jl-hash-53"></a>
+              30 (0.66%) samples spent in hash<br />
+              0 (ex.),
+              30 (100.00%) (incl.)
+              when called from
+              hash
+              <a href="hashing-jl-9483c75ae069ee9fd2b9-line.html#Lhashing-jl-9483c75ae069ee9fd2b9-line.html-18">line 18</a><br />
+            </div>
+            <div class="callees">
+              30 (100.00%)
+              samples spent calling
+              <a href="float-jl-2bec787ea8ba61d96af5-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-float-jl-hash-572">hash</a><br />
+            </div>
+            <span class="code">Base.hash(a::Id, h::UInt) = hash(a._hash, h)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.isequal(a::Id{VC}, b::Id{VC}) where {VC} = Base.isequal(a._hash, b._hash)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.isequal(a::Int, b::Id) = Base.isequal(a, b._hash)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.isequal(a::Id, b::Int) = Base.isequal(a._hash, b)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.isless(a::Id{VC}, b::Id{VC}) where {VC} = Base.isless(a._hash, b._hash)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.zero(I::Type{Id{VC}}) where {VC} = I(Duty{VC}(0), -1, -1, -1, -1, -1)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-60"></a>60</td>
+          <td></td>
+          <td>31 (0.68%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-vcids-jl-60"></a>
+              31 (0.68%) samples spent in &lt;<br />
+              0 (ex.),
+              31 (100.00%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-42">line 42</a><br />
+            </div>
+            <div class="callees">
+              31 (100.00%)
+              samples spent calling
+              <a href="int-jl-f9534783e11d1579623d-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-int-jl-82">&lt;</a><br />
+            </div>
+            <span class="code">Base.:(&lt;)(a::Id{VC}, b::Id{VC}) where {VC} = a._hash &lt; b._hash
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.:(&lt;=)(a::Id{VC}, b::Id{VC}) where {VC} = a._hash &lt;= b._hash
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-62"></a>62</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.:(==)(a::Id{VC}, b::Id{VC}) where {VC} = a._hash == b._hash
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-63"></a>63</td>
+          <td></td>
+          <td>32 (0.70%)</td>
+          <td>
+            <div class="call-sites">
+              <a name="S-Users-guimarqu-optim-Coluna-jl-src-MathProg-vcids-jl-63"></a>
+              32 (0.70%) samples spent in &gt;<br />
+              0 (ex.),
+              32 (100.00%) (incl.)
+              when called from
+              find
+              <a href="finds-jl-5051ea635711c1663770-line.html#Lfinds-jl-5051ea635711c1663770-line.html-40">line 40</a><br />
+            </div>
+            <div class="callees">
+              32 (100.00%)
+              samples spent calling
+              <a href="operators-jl-3310278f8b41d892ffb5-line.html#S-Applications-Julia-1-5-app-Contents-Resources-julia-bin-share-julia-base-operators-jl-303">&gt;</a><br />
+            </div>
+            <span class="code">Base.:(&gt;)(a::Id{VC}, b::Id{VC}) where {VC} = a._hash &gt; b._hash
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-64"></a>64</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">Base.:(&gt;=)(a::Id{VC}, b::Id{VC}) where {VC} = a._hash &gt;= b._hash
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-65"></a>65</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-66"></a>66</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">getuid(id::Id)::Int = id.uid
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-67"></a>67</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">getduty(vcid::Id{VC}) where {VC} = vcid.duty
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-68"></a>68</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">getoriginformuid(id::Id)::FormId = id.origin_form_uid
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-69"></a>69</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">getassignedformuid(id::Id)::FormId = id.assigned_form_uid_in_reformulation
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-70"></a>70</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">getprocuid(id::Id)::Int = id.proc_uid
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-71"></a>71</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">getsortuid(id::Id)::Int = getuid(id) + 1000000 * getoriginformuid(id)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-72"></a>72</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-73"></a>73</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function Base.show(io::IO, id::Id{T}) where {T}
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-74"></a>74</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    print(io, T, &quot;#&quot;,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-75"></a>75</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          &quot;u&quot;, id.uid,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-76"></a>76</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          &quot;f&quot;, id.origin_form_uid,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-77"></a>77</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          &quot;a&quot;, id.assigned_form_uid_in_reformulation,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-78"></a>78</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          &quot;p&quot;, id.proc_uid ,
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-79"></a>79</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">          &quot;h&quot;, id._hash)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lvcids-jl-b4849019c83cb419ae4e-line.html-80"></a>80</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

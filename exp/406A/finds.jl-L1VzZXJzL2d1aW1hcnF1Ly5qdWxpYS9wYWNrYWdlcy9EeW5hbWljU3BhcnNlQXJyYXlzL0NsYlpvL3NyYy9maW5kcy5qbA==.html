@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'></meta>
+    <link rel='stylesheet' type='text/css' href='statprofiler.css'></link>
+    <title>StatProfilerHTML - /Users/guimarqu/.julia/packages/DynamicSparseArrays/ClbZo/src/finds.jl</title>
+  </head>
+  <body>
+    <div class='report-header'>
+      <div class='backlink'>
+        <a href='index.html'>Report index</a>
+      </div>
+      <div class='report-title'>
+        StatProfilerHTML.jl report
+      </div>
+      <div class='generated-on'>
+        Generated on Wed, 23 Dec 2020 09:02:48
+      </div>
+    </div>
+    <table>
+      <caption>File source code</caption>
+      <thead>
+        <tr>
+          <th>Line</th>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id='L1'>
+          <td class='lineno'>1</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>&quot;&quot;&quot;</span>
+          </td>
+        </tr>
+        <tr id='L2'>
+          <td class='lineno'>2</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    find&#40;array::Vector&#123;Union&#123;Nothing, T&#125;&#125;, key, from::Int, to::Int&#41; where &#123;T&#125;</span>
+          </td>
+        </tr>
+        <tr id='L3'>
+          <td class='lineno'>3</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L4'>
+          <td class='lineno'>4</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>Look for the element indexed by &#96;key&#96; in the subarray of &#96;array&#96; starting at </span>
+          </td>
+        </tr>
+        <tr id='L5'>
+          <td class='lineno'>5</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>position &#96;from&#96; and ending at position &#96;to&#96;.</span>
+          </td>
+        </tr>
+        <tr id='L6'>
+          <td class='lineno'>6</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L7'>
+          <td class='lineno'>7</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>If the element is in the subarray, the method returns the position and the </span>
+          </td>
+        </tr>
+        <tr id='L8'>
+          <td class='lineno'>8</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>the element.</span>
+          </td>
+        </tr>
+        <tr id='L9'>
+          <td class='lineno'>9</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L10'>
+          <td class='lineno'>10</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>If the element is not in the subarray, the method returns the position and the </span>
+          </td>
+        </tr>
+        <tr id='L11'>
+          <td class='lineno'>11</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>element that has the nearest inferior key &#40;predecessor&#41; in the subarray. </span>
+          </td>
+        </tr>
+        <tr id='L12'>
+          <td class='lineno'>12</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L13'>
+          <td class='lineno'>13</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>If the element has no predecessor in the subarray, the method returns the</span>
+          </td>
+        </tr>
+        <tr id='L14'>
+          <td class='lineno'>14</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>position and the last element located in the left outside.</span>
+          </td>
+        </tr>
+        <tr id='L15'>
+          <td class='lineno'>15</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L16'>
+          <td class='lineno'>16</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L17'>
+          <td class='lineno'>17</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    find&#40;array::Vector&#123;Union&#123;Nothing, T&#125;&#125;, key&#41; where &#123;T&#125;</span>
+          </td>
+        </tr>
+        <tr id='L18'>
+          <td class='lineno'>18</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L19'>
+          <td class='lineno'>19</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>Look for the element indexed by &#96;key&#96; in &#96;array&#96;.</span>
+          </td>
+        </tr>
+        <tr id='L20'>
+          <td class='lineno'>20</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L21'>
+          <td class='lineno'>21</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>If the element is in the &#96;array&#96;, the method returns the position and the </span>
+          </td>
+        </tr>
+        <tr id='L22'>
+          <td class='lineno'>22</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>the element.</span>
+          </td>
+        </tr>
+        <tr id='L23'>
+          <td class='lineno'>23</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L24'>
+          <td class='lineno'>24</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>If the element is not in the &#96;array&#96;, the method returns the position and the </span>
+          </td>
+        </tr>
+        <tr id='L25'>
+          <td class='lineno'>25</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>element that has the nearest inferior key &#40;predecessor&#41;. </span>
+          </td>
+        </tr>
+        <tr id='L26'>
+          <td class='lineno'>26</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L27'>
+          <td class='lineno'>27</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>If the element has no predecessor, the method returns &#96;&#40;0, nothing&#41;&#96;.</span>
+          </td>
+        </tr>
+        <tr id='L28'>
+          <td class='lineno'>28</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>&quot;&quot;&quot;</span>
+          </td>
+        </tr>
+        <tr id='L29'>
+          <td class='lineno'>29</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>function find&#40;array::Vector&#123;Union&#123;Nothing, T&#125;&#125;, key, from::Int, to::Int&#41; where &#123;T&#125;</span>
+          </td>
+        </tr>
+        <tr id='L30'>
+          <td class='lineno'>30</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'>12 &#40;0 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              12 &#40;0 &#37;&#41;
+              samples spent in find
+              <br />
+              
+              12 &#40;100 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              12 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='int.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2ludC5qbA&#61;&#61;.html#L441'>&lt;&#61;</a>
+              <br />
+            </div>
+            <span class='code'>    while from &lt;&#61; to</span>
+          </td>
+        </tr>
+        <tr id='L31'>
+          <td class='lineno'>31</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'>10 &#40;0 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              10 &#40;0 &#37;&#41;
+              samples spent in find
+              <br />
+              
+              2 &#40;20 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              
+              8 &#40;80 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              2 &#40;20 &#37;&#41;
+              samples spent calling
+              <a href='int.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2ludC5qbA&#61;&#61;.html#L86'>&#43;</a>
+              <br />
+              8 &#40;80 &#37;&#41;
+              samples spent calling
+              <a href='int.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2ludC5qbA&#61;&#61;.html#L260'>div</a>
+              <br />
+            </div>
+            <span class='code'>        mid &#61; &#40;from &#43; to&#41; ÷ 2</span>
+          </td>
+        </tr>
+        <tr id='L32'>
+          <td class='lineno'>32</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>        i &#61; mid</span>
+          </td>
+        </tr>
+        <tr id='L33'>
+          <td class='lineno'>33</td>
+          <td class='tracecount excl'>94 &#40;3 &#37;&#41;</td>
+          <td class='tracecount incl'>114 &#40;3 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              114 &#40;3 &#37;&#41;
+              samples spent in find
+              <br />
+              31 &#40;27 &#37;&#41; &#40;ex.&#41;,
+              35 &#40;31 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              1 &#40;1 &#37;&#41; &#40;ex.&#41;,
+              1 &#40;1 &#37;&#41; &#40;incl.&#41;
+              when called from insert&#33;
+              <a href='writes.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy93cml0ZXMuamw&#61;.html#L15'>line 15</a>
+              <br />
+              62 &#40;54 &#37;&#41; &#40;ex.&#41;,
+              78 &#40;68 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              16 &#40;80 &#37;&#41;
+              samples spent calling
+              <a href='utils.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy91dGlscy5qbA&#61;&#61;.html#L2'>_isempty</a>
+              <br />
+              4 &#40;20 &#37;&#41;
+              samples spent calling
+              <a href='operators.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL29wZXJhdG9ycy5qbA&#61;&#61;.html#L350'>&gt;&#61;</a>
+              <br />
+            </div>
+            <span class='code'>        while i &gt;&#61; from &amp;&amp; _isempty&#40;array, i&#41;</span>
+          </td>
+        </tr>
+        <tr id='L34'>
+          <td class='lineno'>34</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>            i -&#61; 1</span>
+          </td>
+        </tr>
+        <tr id='L35'>
+          <td class='lineno'>35</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>        end</span>
+          </td>
+        </tr>
+        <tr id='L36'>
+          <td class='lineno'>36</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>        if i &lt; from</span>
+          </td>
+        </tr>
+        <tr id='L37'>
+          <td class='lineno'>37</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>            from &#61; mid &#43; 1</span>
+          </td>
+        </tr>
+        <tr id='L38'>
+          <td class='lineno'>38</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>        else</span>
+          </td>
+        </tr>
+        <tr id='L39'>
+          <td class='lineno'>39</td>
+          <td class='tracecount excl'>3 &#40;0 &#37;&#41;</td>
+          <td class='tracecount incl'>315 &#40;9 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              315 &#40;9 &#37;&#41;
+              samples spent in find
+              <br />
+              3 &#40;1 &#37;&#41; &#40;ex.&#41;,
+              184 &#40;58 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              
+              6 &#40;2 &#37;&#41; &#40;incl.&#41;
+              when called from insert&#33;
+              <a href='writes.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy93cml0ZXMuamw&#61;.html#L15'>line 15</a>
+              <br />
+              
+              125 &#40;40 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              91 &#40;29 &#37;&#41;
+              samples spent calling
+              <a href='utils.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy91dGlscy5qbA&#61;&#61;.html#L35'>_getkey</a>
+              <br />
+              187 &#40;60 &#37;&#41;
+              samples spent calling
+              <a href='utils.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy91dGlscy5qbA&#61;&#61;.html#L37'>_getkey</a>
+              <br />
+              34 &#40;11 &#37;&#41;
+              samples spent calling
+              <a href='utils.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy91dGlscy5qbA&#61;&#61;.html#L32'>_getkey</a>
+              <br />
+            </div>
+            <span class='code'>            curkey &#61; _getkey&#40;array, i&#41;</span>
+          </td>
+        </tr>
+        <tr id='L40'>
+          <td class='lineno'>40</td>
+          <td class='tracecount excl'>10 &#40;0 &#37;&#41;</td>
+          <td class='tracecount incl'>17 &#40;0 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              17 &#40;0 &#37;&#41;
+              samples spent in find
+              <br />
+              1 &#40;6 &#37;&#41; &#40;ex.&#41;,
+              1 &#40;6 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              9 &#40;53 &#37;&#41; &#40;ex.&#41;,
+              16 &#40;94 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              7 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='vcids.jl-L1VzZXJzL2d1aW1hcnF1L29wdGltL0NvbHVuYS5qbC9zcmMvTWF0aFByb2cvdmNpZHMuamw&#61;.html#L63'>&gt;</a>
+              <br />
+            </div>
+            <span class='code'>            if curkey &gt; key</span>
+          </td>
+        </tr>
+        <tr id='L41'>
+          <td class='lineno'>41</td>
+          <td class='tracecount excl'>2 &#40;0 &#37;&#41;</td>
+          <td class='tracecount incl'>3 &#40;0 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              3 &#40;0 &#37;&#41;
+              samples spent in find
+              <br />
+              1 &#40;33 &#37;&#41; &#40;ex.&#41;,
+              2 &#40;67 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              1 &#40;33 &#37;&#41; &#40;ex.&#41;,
+              1 &#40;33 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              1 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='int.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2ludC5qbA&#61;&#61;.html#L85'>-</a>
+              <br />
+            </div>
+            <span class='code'>                to &#61; i - 1</span>
+          </td>
+        </tr>
+        <tr id='L42'>
+          <td class='lineno'>42</td>
+          <td class='tracecount excl'>19 &#40;1 &#37;&#41;</td>
+          <td class='tracecount incl'>29 &#40;1 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              29 &#40;1 &#37;&#41;
+              samples spent in find
+              <br />
+              
+              1 &#40;3 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              19 &#40;66 &#37;&#41; &#40;ex.&#41;,
+              28 &#40;97 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              10 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='vcids.jl-L1VzZXJzL2d1aW1hcnF1L29wdGltL0NvbHVuYS5qbC9zcmMvTWF0aFByb2cvdmNpZHMuamw&#61;.html#L60'>&lt;</a>
+              <br />
+            </div>
+            <span class='code'>            elseif curkey &lt; key</span>
+          </td>
+        </tr>
+        <tr id='L43'>
+          <td class='lineno'>43</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'>6 &#40;0 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              6 &#40;0 &#37;&#41;
+              samples spent in find
+              <br />
+              
+              6 &#40;100 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              6 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='int.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2ludC5qbA&#61;&#61;.html#L86'>&#43;</a>
+              <br />
+            </div>
+            <span class='code'>                from &#61; mid &#43; 1</span>
+          </td>
+        </tr>
+        <tr id='L44'>
+          <td class='lineno'>44</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>            else</span>
+          </td>
+        </tr>
+        <tr id='L45'>
+          <td class='lineno'>45</td>
+          <td class='tracecount excl'>4 &#40;0 &#37;&#41;</td>
+          <td class='tracecount incl'>22 &#40;1 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              22 &#40;1 &#37;&#41;
+              samples spent in find
+              <br />
+              4 &#40;18 &#37;&#41; &#40;ex.&#41;,
+              4 &#40;18 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              
+              18 &#40;82 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              18 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='array.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2FycmF5Lmps.html#L809'>getindex</a>
+              <br />
+            </div>
+            <span class='code'>                return &#40;i, array&#91;i&#93;&#41;</span>
+          </td>
+        </tr>
+        <tr id='L46'>
+          <td class='lineno'>46</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>            end</span>
+          </td>
+        </tr>
+        <tr id='L47'>
+          <td class='lineno'>47</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>        end</span>
+          </td>
+        </tr>
+        <tr id='L48'>
+          <td class='lineno'>48</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    end</span>
+          </td>
+        </tr>
+        <tr id='L49'>
+          <td class='lineno'>49</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    i &#61; to</span>
+          </td>
+        </tr>
+        <tr id='L50'>
+          <td class='lineno'>50</td>
+          <td class='tracecount excl'>4 &#40;0 &#37;&#41;</td>
+          <td class='tracecount incl'>7 &#40;0 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              7 &#40;0 &#37;&#41;
+              samples spent in find
+              <br />
+              4 &#40;57 &#37;&#41; &#40;ex.&#41;,
+              6 &#40;86 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              
+              1 &#40;14 &#37;&#41; &#40;incl.&#41;
+              when called from insert&#33;
+              <a href='writes.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy93cml0ZXMuamw&#61;.html#L15'>line 15</a>
+              <br />
+            </div>
+            <div class='callees'>
+              2 &#40;67 &#37;&#41;
+              samples spent calling
+              <a href='utils.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy91dGlscy5qbA&#61;&#61;.html#L2'>_isempty</a>
+              <br />
+              1 &#40;33 &#37;&#41;
+              samples spent calling
+              <a href='operators.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL29wZXJhdG9ycy5qbA&#61;&#61;.html#L303'>&gt;</a>
+              <br />
+            </div>
+            <span class='code'>    while i &gt; 0 &amp;&amp; _isempty&#40;array, i&#41;</span>
+          </td>
+        </tr>
+        <tr id='L51'>
+          <td class='lineno'>51</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>        i -&#61; 1</span>
+          </td>
+        </tr>
+        <tr id='L52'>
+          <td class='lineno'>52</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    end</span>
+          </td>
+        </tr>
+        <tr id='L53'>
+          <td class='lineno'>53</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    if i &gt; 0</span>
+          </td>
+        </tr>
+        <tr id='L54'>
+          <td class='lineno'>54</td>
+          <td class='tracecount excl'>327 &#40;9 &#37;&#41;</td>
+          <td class='tracecount incl'>329 &#40;9 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              329 &#40;9 &#37;&#41;
+              samples spent in find
+              <br />
+              327 &#40;99 &#37;&#41; &#40;ex.&#41;,
+              328 &#40;100 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L204'>line 204</a>
+              <br />
+              
+              1 &#40;0 &#37;&#41; &#40;incl.&#41;
+              when called from find
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L60'>line 60</a>
+              <br />
+            </div>
+            <div class='callees'>
+              2 &#40;100 &#37;&#41;
+              samples spent calling
+              <a href='array.jl-L0FwcGxpY2F0aW9ucy9KdWxpYS0xLjUuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9qdWxpYS9iaW4vLi4vc2hhcmUvanVsaWEvYmFzZS8uL2FycmF5Lmps.html#L809'>getindex</a>
+              <br />
+            </div>
+            <span class='code'>        return &#40;i, array&#91;i&#93;&#41;</span>
+          </td>
+        </tr>
+        <tr id='L55'>
+          <td class='lineno'>55</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    end</span>
+          </td>
+        </tr>
+        <tr id='L56'>
+          <td class='lineno'>56</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>    return &#40;0, nothing&#41;</span>
+          </td>
+        </tr>
+        <tr id='L57'>
+          <td class='lineno'>57</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>end</span>
+          </td>
+        </tr>
+        <tr id='L58'>
+          <td class='lineno'>58</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'></span>
+          </td>
+        </tr>
+        <tr id='L59'>
+          <td class='lineno'>59</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>function find&#40;array::Vector&#123;Union&#123;Nothing, T&#125;&#125;, key&#41; where &#123;T&#125;</span>
+          </td>
+        </tr>
+        <tr id='L60'>
+          <td class='lineno'>60</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'>326 &#40;9 &#37;&#41;</td>
+          <td>
+            <div class='call-sites'>
+              326 &#40;9 &#37;&#41;
+              samples spent in find
+              <br />
+              
+              11 &#40;3 &#37;&#41; &#40;incl.&#41;
+              when called from setindex&#33;
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L316'>line 316</a>
+              <br />
+              
+              315 &#40;97 &#37;&#41; &#40;incl.&#41;
+              when called from getindex
+              <a href='pcsr.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9wY3NyLmps.html#L239'>line 239</a>
+              <br />
+            </div>
+            <div class='callees'>
+              12 &#40;4 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L30'>find</a>
+              <br />
+              1 &#40;0 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L41'>find</a>
+              <br />
+              125 &#40;38 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L39'>find</a>
+              <br />
+              16 &#40;5 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L40'>find</a>
+              <br />
+              1 &#40;0 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L54'>find</a>
+              <br />
+              78 &#40;24 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L33'>find</a>
+              <br />
+              6 &#40;2 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L43'>find</a>
+              <br />
+              33 &#40;10 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L0'>find</a>
+              <br />
+              8 &#40;2 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L31'>find</a>
+              <br />
+              28 &#40;9 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L42'>find</a>
+              <br />
+              18 &#40;6 &#37;&#41;
+              samples spent calling
+              <a href='finds.jl-L1VzZXJzL2d1aW1hcnF1Ly5qdWxpYS9wYWNrYWdlcy9EeW5hbWljU3BhcnNlQXJyYXlzL0NsYlpvL3NyYy9maW5kcy5qbA&#61;&#61;.html#L45'>find</a>
+              <br />
+            </div>
+            <span class='code'>    return find&#40;array, key, 1, length&#40;array&#41;&#41;</span>
+          </td>
+        </tr>
+        <tr id='L61'>
+          <td class='lineno'>61</td>
+          <td class='tracecount excl'></td>
+          <td class='tracecount incl'></td>
+          <td>
+            
+            
+            <span class='code'>end</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+
